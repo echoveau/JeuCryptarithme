@@ -1,5 +1,5 @@
 #include "variable.h"
 
-Variable::Variable(String l,Domaine d)
+Variable::Variable(std::string l,Domaine d)
     :lettre(l),domaine(d){}
 

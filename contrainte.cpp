@@ -1,6 +1,6 @@
 #include "contrainte.h"
 
-Contrainte::Contrainte()
+Contrainte::Contrainte(std::vector<Variable> gauche,std::vector<Variable> droite)
 {
 
 }

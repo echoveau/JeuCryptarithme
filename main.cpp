@@ -1,16 +1,19 @@
 #include <iostream>
 #include <cstring>
+#include <vector>
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+    std::vector<string> mots;
 
-    std::cout<<argc<<std::endl;
+    
     for(int i = 1; i<argc; i++){
-        std::cout<<argv[i]<<std::endl;
+        mots.push_back(argv[i]);
     }
     
+    std::cout<<mots[0][0]<<std::endl;
 
  
     return 0;
