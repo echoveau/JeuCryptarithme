@@ -1,6 +1,8 @@
 #ifndef DOMAIN_H
 #define DOMAIN_H
 
+#include <iostream>
+#include <vector>
 
 /*
  * le domaine, défini l'ensemble des données pour une variable.
@@ -10,10 +12,16 @@
  *      Domain d3({1,2,7,8})
  */
 
-class Domain
+class Domaine
 {
 public:
-    Domain();
+    Domaine(int debut, int fin);
+    Domaine(std::vector<int> intervalSpecial);
+
+private:
+    int debut;
+    int fin;
+    std::vector<int> intervalSpecial;
 };
 
 #endif // DOMAIN_H

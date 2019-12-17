@@ -1,8 +1,9 @@
-#include "domain.h"
+#include "domaine.h"
 
 
-Domain::Domain()
-{
+Domaine::Domaine(int debut, int fin): debut(debut), fin(fin)
+{}
 
-}
+Domaine::Domaine(std::vector<int> intervalSpecial): intervalSpecial(intervalSpecial)
+{}
 
