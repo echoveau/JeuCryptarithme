@@ -1,5 +1,6 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
+#include "domaine.h"
 
 /*
  * Exemple :
@@ -9,7 +10,10 @@
 class Variable
 {
 public:
-    Variable();
+    Variable(String l,Domain d);
+private:
+    String lettre;
+    Domaine domaine;
 };
 
 #endif // VARIABLE_H
