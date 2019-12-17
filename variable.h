@@ -10,9 +10,9 @@
 class Variable
 {
 public:
-    Variable(String l,Domain d);
+    Variable(std::string l, Domaine d);
 private:
-    String lettre;
+    std::string lettre;
     Domaine domaine;
 };
 
