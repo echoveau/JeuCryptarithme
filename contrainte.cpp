@@ -21,3 +21,4 @@ void Contrainte::afficherContrainte(){
 
     std::cout<<std::endl;
 }
+

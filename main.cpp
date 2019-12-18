@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    //Varaiable retenu
+    //Variable retenu
     Domaine d1 = Domaine(0,mots.size()-2);
     domaines.push_back(d1);
     int nombreRetenu = trouverTaillePlusPetitMot(mots);
@@ -101,11 +101,11 @@ int main(int argc, char* argv[])
 
         //Ajout de la variable dans la contrainte
         for(string mot : mots){
-            string lettreToString(1,mot[i]);
-            Variable var = trouverVariableDepuisLettre(lettreToString,variables);
-            
-            //Determine si il faut mettre à droite ou à gauche
-            if(var.getLettre()[0]!='R'){
+            if(mot[i]){
+                string lettreToString(1,mot[i]);
+                Variable var = trouverVariableDepuisLettre(lettreToString,variables);
+                
+                //Determine si il faut mettre à droite ou à gauche
                 if(estLeDernier(mot,mots)) droite.push_back(var);
                 else gauche.push_back(var);
             }
@@ -127,7 +127,7 @@ int main(int argc, char* argv[])
     for(Contrainte c : contraintes){
         c.afficherContrainte();
     }
-    
+
     return 0;
 }
 

@@ -7,3 +7,7 @@ Variable::Variable(std::string l,Domaine d)
 std::string Variable::getLettre(){
     return lettre;
 }
+
+int Variable::getValeur(){
+    return valeur;
+}
