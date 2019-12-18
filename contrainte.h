@@ -6,8 +6,14 @@ class Contrainte
 {
 public:
     Contrainte(std::vector<Variable> gauche,std::vector<Variable> droite); //addition
-    Contrainte(Variable gauche,Variable droite); //égalité
+    //Contrainte(Variable gauche,Variable droite); //égalité
     Contrainte(std::vector<Variable> alldiff); //alldiff
+    void afficherContrainte();
+private:
+    std::vector<Variable> gauche;
+    std::vector<Variable> droite;
+    std::vector<Variable> alldiff;
+
 };
 
 #endif // CONTRAINTE_H

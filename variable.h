@@ -11,6 +11,7 @@ class Variable
 {
 public:
     Variable(std::string l, Domaine d);
+    std::string getLettre();
 private:
     std::string lettre;
     Domaine domaine;
