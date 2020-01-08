@@ -45,6 +45,34 @@ vector<string> inverseMots(vector<string> mots){
     }
     return imots;
 }
+
+//Verifie si une contraintes n'est pas respectée, auquel cas, on coupe la branche de l'arbre
+bool checkAllConstraints(vector<Contrainte> contraintes;){
+    for(Contrainte c : contraintes){
+        if(c.checkContrainte()==0)
+            return false;
+    }
+    return true;
+}
+
+//Compte le nombre de contraintes réspectées
+int numberOfTrueConstraints(vector<Contrainte> contraintes;){
+    int count = 0;
+    for(Contrainte c : contraintes){
+        if(c.checkContrainte()==1)
+            count++;
+    }
+    return count;
+}
+
+//Supprime une variable de la liste
+void deleteVar(string lettre,vector<Variable> variables){
+    for(int i =; i<variables.size();++i){
+        if(variables.at(i).getLettre()==lettre){
+            variables.erase(i)
+        }
+    }
+}
 //######################################################################################################
 
 int main(int argc, char* argv[])
@@ -124,6 +152,9 @@ int main(int argc, char* argv[])
     }
 
 
+
+
+
     //###############################################################################################
     //                  TEST
     
@@ -133,12 +164,14 @@ int main(int argc, char* argv[])
     }
 
     for(Variable var : variables){
-        if(var.getLettre()=="M" || var.getLettre()=="R4")
-            var.setValeur(2);
+        if(var.getLettre()=="M"){
+            var.setValeur(1);
+        }
     }
+    deleteVar("M",variables);
 
-    for(Contrainte c : contraintes){
-        cout<<c.checkContrainte()<<endl;
+    while(numberOfTrueConstraints(c)<5){
+        variables.getLettre
     }
 
     cout<<endl;

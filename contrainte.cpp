@@ -25,6 +25,7 @@ void Contrainte::afficherContrainte(){
     }
 }
 
+
 /*
     Cette fonction retourne un entier :
         -1  Si la contrainte est indéfini 
@@ -33,9 +34,7 @@ void Contrainte::afficherContrainte(){
                 (Par exemple si M=3,R1=2,S=4 et M+R1=S alors on retourne 0)    
         1   Si la contrainte est respectée 
                 (Par exemple si M=3,R1=1,S=4 et M+R1=S alors on retourne 1)    
-
 */
-
 int Contrainte::checkContrainte(){
     if(!alldiff.empty()){
         std::vector<int> valeurs;
