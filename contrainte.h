@@ -9,7 +9,7 @@ public:
     //Contrainte(Variable gauche,Variable droite); //égalité
     Contrainte(std::vector<Variable> alldiff); //alldiff
     void afficherContrainte();
-    bool checkContrainte();
+    int checkContrainte();
 private:
     std::vector<Variable> gauche;
     std::vector<Variable> droite;
