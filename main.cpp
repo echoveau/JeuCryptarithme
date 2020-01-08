@@ -25,8 +25,9 @@ int trouverTailleDuResultat(vector<string> &mots){
 //Retrouve la variable lettre depuis une lettre
 Variable trouverVariableDepuisLettre(string lettre,  vector<Variable> variables){
     for(Variable var : variables){
-        if(lettre == var.getLettre())
+        if(lettre == var.getLettre()){
            return var;
+        }
     }
 }
 
@@ -105,9 +106,9 @@ int main(int argc, char* argv[])
        
         //Ajout de la variable dans la contrainte
         for(string mot : mots){
-            if(mot[i]){
+            if(i<mot.size() && mot[i]){
                 string lettreToString(1,mot[i]);
-                Variable var = trouverVariableDepuisLettre(lettreToString,variables);
+                Variable var = trouverVariableDepuisLettre(lettreToString, variables);
                 //Determine si il faut mettre à droite ou à gauche
                 if(estLeDernier(mot,mots)) droite.push_back(var);
                 else gauche.push_back(var);
