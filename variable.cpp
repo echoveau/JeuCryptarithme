@@ -1,7 +1,7 @@
 #include "variable.h"
 
 Variable::Variable(std::string l,Domaine d)
-    :lettre(l),domaine(d){}
+    :lettre(l),domaine(d),valeur(-1){}
 
 
 std::string Variable::getLettre(){
@@ -10,4 +10,8 @@ std::string Variable::getLettre(){
 
 int Variable::getValeur(){
     return valeur;
+}
+
+void Variable::setValeur(int v){
+    valeur = v;
 }

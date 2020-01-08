@@ -91,7 +91,7 @@ int main(int argc, char* argv[])
 
     //Création des contraintes
     vector<Contrainte> contraintes;
-    //contraintes.push_back(Contrainte(variables));       //alldiff
+    contraintes.push_back(Contrainte(variables));       //alldiff
 
     mots = inverseMots(mots);
 
@@ -123,11 +123,26 @@ int main(int argc, char* argv[])
         contraintes.push_back(Contrainte(gauche,droite)); 
     }
 
+
+    //###############################################################################################
+    //                  TEST
+    
     //Affichage des contraintes
     for(Contrainte c : contraintes){
-        c.afficherContrainte();
+        c.afficherContrainte();  
     }
 
+    for(Variable var : variables){
+        if(var.getLettre()=="M" || var.getLettre()=="R4")
+            var.setValeur(2);
+    }
+
+    for(Contrainte c : contraintes){
+        cout<<c.checkContrainte()<<endl;
+    }
+
+    cout<<endl;
+    //###############################################################################################
     return 0;
 }
 
