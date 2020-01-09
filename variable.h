@@ -14,9 +14,9 @@ public:
     std::string getLettre();
     int getValeur();
     void setValeur(int v);
+    Domaine domaine;
 private:
     std::string lettre;
-    Domaine domaine;
     int valeur;
 };
 

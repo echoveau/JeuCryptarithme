@@ -2,10 +2,12 @@
 #include "variable.h"
 #include "domaine.h"
 #include "contrainte.h"
+#include "Noeud.h"
 #include <cstring>
 #include <vector>
 
 using namespace std;
+
 //######################################################################################################
 //              METHODES
 //Retourne la taille du plus petit mot qui nous permettra de savoir le nombre de retenu
@@ -47,7 +49,7 @@ vector<string> inverseMots(vector<string> mots){
 }
 
 //Verifie si une contraintes n'est pas respectée, auquel cas, on coupe la branche de l'arbre
-bool checkAllConstraints(vector<Contrainte> contraintes;){
+bool checkAllConstraints(vector<Contrainte> contraintes){
     for(Contrainte c : contraintes){
         if(c.checkContrainte()==0)
             return false;
@@ -56,7 +58,7 @@ bool checkAllConstraints(vector<Contrainte> contraintes;){
 }
 
 //Compte le nombre de contraintes réspectées
-int numberOfTrueConstraints(vector<Contrainte> contraintes;){
+int numberOfTrueConstraints(vector<Contrainte> contraintes){
     int count = 0;
     for(Contrainte c : contraintes){
         if(c.checkContrainte()==1)
@@ -65,14 +67,15 @@ int numberOfTrueConstraints(vector<Contrainte> contraintes;){
     return count;
 }
 
+/*
 //Supprime une variable de la liste
 void deleteVar(string lettre,vector<Variable> variables){
-    for(int i =; i<variables.size();++i){
+    for(int i =0; i<variables.size();++i){
         if(variables.at(i).getLettre()==lettre){
             variables.erase(i)
         }
     }
-}
+}*/
 //######################################################################################################
 
 int main(int argc, char* argv[])
@@ -153,8 +156,6 @@ int main(int argc, char* argv[])
 
 
 
-
-
     //###############################################################################################
     //                  TEST
     
@@ -163,19 +164,25 @@ int main(int argc, char* argv[])
         c.afficherContrainte();  
     }
 
+    //On met la variable M à 1
     for(Variable var : variables){
         if(var.getLettre()=="M"){
             var.setValeur(1);
         }
     }
-    deleteVar("M",variables);
-
-    while(numberOfTrueConstraints(c)<5){
-        variables.getLettre
-    }
 
     cout<<endl;
     //###############################################################################################
+    //                  ARBRE
+
+    Noeud racine = Noeud(1,variables,contraintes);
+
+    while(!racine.checkConstraintInNoeud()){
+        while(!racine.children.empty()){
+            racine = racine.children.at(0);
+            racine.afficherVariableCourante();
+        }
+    }
     return 0;
 }
 
