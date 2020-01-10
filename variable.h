@@ -12,6 +12,9 @@ class Variable
 public:
     Variable(std::string l, Domaine d);
     std::string getLettre();
+    int getValeur();
+    void setValeur(int v);
+    Domaine domaine;
 private:
     std::string lettre;
     Domaine domaine;
