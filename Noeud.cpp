@@ -11,10 +11,10 @@ bool Noeud::checkConstraintInNoeud(){
     unsigned int numberOfOne=0;
     bool branchIsGood=true;
     for(Contrainte c : contraintes){
-        std::cout<<c.checkConstraint()<<std::endl;
-        if(c.checkConstraint()==0)
+        std::cout<<c.checkContrainte()<<std::endl;
+        if(c.checkContrainte()==0)
             branchIsGood=false;
-        if(c.checkConstraint()==1)
+        if(c.checkContrainte()==1)
             ++numberOfOne;
     }
 
@@ -41,7 +41,6 @@ void Noeud::addChildren(){
             }
             variablesSuivantes.at(currentVariable).setValeur(i);
             children.push_back(Noeud(currentVariable+1,variables,contraintes));
-            std::cout<<children.size()<<std::endl;
         }	
     }
 }

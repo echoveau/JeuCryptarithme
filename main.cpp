@@ -7,6 +7,7 @@
 #include <vector>
 
 using namespace std;
+
 //######################################################################################################
 //              METHODES
 
@@ -50,6 +51,35 @@ vector<string> inverseMots(vector<string> mots){
     }
     return imots;
 }
+
+//Verifie si une contraintes n'est pas respectée, auquel cas, on coupe la branche de l'arbre
+bool checkAllConstraints(vector<Contrainte> contraintes){
+    for(Contrainte c : contraintes){
+        if(c.checkContrainte()==0)
+            return false;
+    }
+    return true;
+}
+
+//Compte le nombre de contraintes réspectées
+int numberOfTrueConstraints(vector<Contrainte> contraintes){
+    int count = 0;
+    for(Contrainte c : contraintes){
+        if(c.checkContrainte()==1)
+            count++;
+    }
+    return count;
+}
+
+/*
+//Supprime une variable de la liste
+void deleteVar(string lettre,vector<Variable> variables){
+    for(int i =0; i<variables.size();++i){
+        if(variables.at(i).getLettre()==lettre){
+            variables.erase(i)
+        }
+    }
+}*/
 //######################################################################################################
 
 int main(int argc, char* argv[])
@@ -95,7 +125,7 @@ int main(int argc, char* argv[])
 
     //Création des contraintes
     vector<Contrainte> contraintes;
-    //contraintes.push_back(Contrainte(variables));       //alldiff
+    contraintes.push_back(Contrainte(variables));       //alldiff
 
     mots = inverseMots(mots);
 
@@ -129,6 +159,8 @@ int main(int argc, char* argv[])
         contraintes.push_back(Contrainte(gauche,droite)); 
     }
 
+
+
     //###############################################################################################
     //                  TEST
     
@@ -151,9 +183,14 @@ int main(int argc, char* argv[])
     Noeud racine = Noeud(1,variables,contraintes);
 
     while(!racine.checkConstraintInNoeud()){
-        while(!racine.children.empty()){
-            racine = racine.children.at(0);
+        int i=0;
+        racine.afficherVariableCourante();
+        if(!racine.children.empty()){
+            racine = racine.children.at(i);
             racine.afficherVariableCourante();
+        }else{
+            ++i;
+            racine = racine.children.at(1);
         }
     }
     return 0;
