@@ -183,7 +183,8 @@ int main(int argc, char* argv[])
     Noeud racine = Noeud(1,variables,contraintes);
 
     while(!racine.checkConstraintInNoeud()){
-        while(!racine.children.empty()){
+        racine.afficherVariableCourante();
+        if(!racine.children.empty()){
             racine = racine.children.at(0);
             racine.afficherVariableCourante();
         }
