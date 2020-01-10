@@ -41,7 +41,6 @@ void Noeud::addChildren(){
             }
             variablesSuivantes.at(currentVariable).setValeur(i);
             children.push_back(Noeud(currentVariable+1,variables,contraintes));
-            std::cout<<children.size()<<std::endl;
         }	
     }
 }
