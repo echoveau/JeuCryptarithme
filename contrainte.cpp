@@ -32,7 +32,7 @@ void Contrainte::afficherContrainte(){
         1   Si la contrainte est respectée 
                 (Par exemple si M=3,R1=1,S=4 et M+R1=S alors on retourne 1)    
 */
-int Contrainte::checkContrainte(){
+int Contrainte::checkConstraint(){
     if(!alldiff.empty()){
         std::vector<int> valeurs;
         // On met toutes les valeurs des variables dans un tableau

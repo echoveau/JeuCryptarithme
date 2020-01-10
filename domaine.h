@@ -17,10 +17,10 @@ class Domaine
 public:
     Domaine(int debut, int fin);
     Domaine(std::vector<int> intervalSpecial);
-
-private:
     int debut;
     int fin;
+
+private:
     std::vector<int> intervalSpecial;
 };
 

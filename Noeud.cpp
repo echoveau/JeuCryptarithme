@@ -11,10 +11,10 @@ bool Noeud::checkConstraintInNoeud(){
     unsigned int numberOfOne=0;
     bool branchIsGood=true;
     for(Contrainte c : contraintes){
-        std::cout<<c.checkContrainte()<<std::endl;
-        if(c.checkContrainte()==0)
+        std::cout<<c.checkConstraint()<<std::endl;
+        if(c.checkConstraint()==0)
             branchIsGood=false;
-        if(c.checkContrainte()==1)
+        if(c.checkConstraint()==1)
             ++numberOfOne;
     }
 
