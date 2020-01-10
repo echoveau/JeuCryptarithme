@@ -123,11 +123,33 @@ int main(int argc, char* argv[])
         contraintes.push_back(Contrainte(gauche,droite)); 
     }
 
+    //###############################################################################################
+    //                  TEST
+    
     //Affichage des contraintes
     for(Contrainte c : contraintes){
-        c.afficherContrainte();
+        c.afficherContrainte();  
     }
 
+    //On met la variable M à 1
+    for(Variable var : variables){
+        if(var.getLettre()=="M"){
+            var.setValeur(1);
+        }
+    }
+
+    cout<<endl;
+    //###############################################################################################
+    //                  ARBRE
+
+    Noeud racine = Noeud(1,variables,contraintes);
+
+    while(!racine.checkConstraintInNoeud()){
+        while(!racine.children.empty()){
+            racine = racine.children.at(0);
+            racine.afficherVariableCourante();
+        }
+    }
     return 0;
 }
 

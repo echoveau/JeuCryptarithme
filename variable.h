@@ -17,7 +17,7 @@ public:
     Domaine domaine;
 private:
     std::string lettre;
-    Domaine domaine;
+    int valeur;
 };
 
 #endif // VARIABLE_H
